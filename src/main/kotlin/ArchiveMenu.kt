@@ -1,10 +1,12 @@
+import kotlin.system.exitProcess
+
 class ArchiveMenu(private val mainMenu: MainMenu, private val archives: MutableList<Archive>) {
     private val options = listOf("Создать архив", "Выбрать архив", "Выход")
 
     fun start() {
         while (true) {
             mainMenu.displayMenu("Главное меню:", options)
-            when (mainMenu.readUserInput(options.size)) {
+            when (mainMenu.readUserInput(options.size + 1)) {
                 1 -> createArchive()
                 2 -> selectArchive()
                 3 -> {
